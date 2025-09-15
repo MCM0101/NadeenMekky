@@ -186,6 +186,69 @@
             }
         }
         
+        /* Floating Animation for "magical" */
+        .floating-text {
+            background: linear-gradient(45deg, #D0949D, #FFD700, #FF69B4, #D0949D, #FFD700);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: float 3s ease-in-out infinite, gradient-shift 4s ease-in-out infinite;
+            position: relative;
+            display: inline-block;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        @keyframes gradient-shift {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            25% {
+                background-position: 100% 50%;
+            }
+            50% {
+                background-position: 200% 50%;
+            }
+            75% {
+                background-position: 300% 50%;
+            }
+        }
+        
+        .floating-text::before {
+            content: '✨';
+            position: absolute;
+            top: -15px;
+            left: -10px;
+            font-size: 0.7em;
+            animation: orbit 3s linear infinite;
+        }
+        
+        .floating-text::after {
+            content: '✨';
+            position: absolute;
+            bottom: -15px;
+            right: -10px;
+            font-size: 0.5em;
+            animation: orbit 3s linear infinite 1.5s;
+        }
+        
+        @keyframes orbit {
+            0% {
+                transform: rotate(0deg) translateX(20px) rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg) translateX(20px) rotate(-360deg);
+            }
+        }
+        
         /* Glass-like Header Effect */
         .glass-header {
             background: linear-gradient(135deg, 
@@ -313,7 +376,7 @@
                     <span class="glitter-text-slow">I design</span> digital experiences.
                 </h1>
                 <p class="text-xl md:text-2xl text-gray-500 font-normal max-w-2xl mx-auto mb-16 animate-fade-in-up delay-200">
-                    Hi, I'm Nadeen Mekky. A Graphic and Product Designer passionate about crafting delightful experiences that feel effortless, yet <span class="glitter-text">magical</span>.
+                    Hi, I'm Nadeen Mekky. A Graphic and Product Designer passionate about crafting delightful experiences that feel effortless, yet <span class="floating-text">magical</span>.
                 </p>
                 <a href="#work" class="inline-block bg-[#D0949D] text-white font-medium py-3 px-8 rounded-full hover:bg-[#B57C85] transition-colors duration-300 text-lg no-underline animate-fade-in-up delay-400">
                     See My Work
