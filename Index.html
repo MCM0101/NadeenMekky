@@ -186,66 +186,51 @@
             }
         }
         
-        /* Floating Animation for "magical" */
-        .floating-text {
-            background: linear-gradient(45deg, #D0949D, #FFD700, #FF69B4, #D0949D, #FFD700);
-            background-size: 400% 400%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: float 3s ease-in-out infinite, gradient-shift 4s ease-in-out infinite;
+        /* Pulse Animation for "magical" */
+        .pulse-text {
+            color: #D0949D;
+            animation: pulse-glow 2s ease-in-out infinite;
             position: relative;
             display: inline-block;
         }
         
-        @keyframes float {
+        @keyframes pulse-glow {
             0%, 100% {
-                transform: translateY(0px);
+                text-shadow: 0 0 5px rgba(208, 148, 157, 0.5);
+                transform: scale(1);
             }
             50% {
-                transform: translateY(-10px);
+                text-shadow: 0 0 20px rgba(208, 148, 157, 0.8), 0 0 30px rgba(208, 148, 157, 0.6);
+                transform: scale(1.05);
             }
         }
         
-        @keyframes gradient-shift {
+        .pulse-text::before {
+            content: '✨';
+            position: absolute;
+            top: -8px;
+            left: -5px;
+            font-size: 0.6em;
+            animation: twinkle 1.5s ease-in-out infinite;
+        }
+        
+        .pulse-text::after {
+            content: '✨';
+            position: absolute;
+            bottom: -8px;
+            right: -5px;
+            font-size: 0.4em;
+            animation: twinkle 1.5s ease-in-out infinite 0.75s;
+        }
+        
+        @keyframes twinkle {
             0%, 100% {
-                background-position: 0% 50%;
-            }
-            25% {
-                background-position: 100% 50%;
+                opacity: 0.3;
+                transform: scale(0.8);
             }
             50% {
-                background-position: 200% 50%;
-            }
-            75% {
-                background-position: 300% 50%;
-            }
-        }
-        
-        .floating-text::before {
-            content: '✨';
-            position: absolute;
-            top: -15px;
-            left: -10px;
-            font-size: 0.7em;
-            animation: orbit 3s linear infinite;
-        }
-        
-        .floating-text::after {
-            content: '✨';
-            position: absolute;
-            bottom: -15px;
-            right: -10px;
-            font-size: 0.5em;
-            animation: orbit 3s linear infinite 1.5s;
-        }
-        
-        @keyframes orbit {
-            0% {
-                transform: rotate(0deg) translateX(20px) rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg) translateX(20px) rotate(-360deg);
+                opacity: 1;
+                transform: scale(1.2);
             }
         }
         
@@ -376,7 +361,7 @@
                     <span class="glitter-text-slow">I design</span> digital experiences.
                 </h1>
                 <p class="text-xl md:text-2xl text-gray-500 font-normal max-w-2xl mx-auto mb-16 animate-fade-in-up delay-200">
-                    Hi, I'm Nadeen Mekky. A Graphic and Product Designer passionate about crafting delightful experiences that feel effortless, yet <span class="floating-text">magical</span>.
+                    Hi, I'm Nadeen Mekky. A Graphic and Product Designer passionate about crafting delightful experiences that feel effortless, yet <span class="pulse-text">magical</span>.
                 </p>
                 <a href="#work" class="inline-block bg-[#D0949D] text-white font-medium py-3 px-8 rounded-full hover:bg-[#B57C85] transition-colors duration-300 text-lg no-underline animate-fade-in-up delay-400">
                     See My Work
