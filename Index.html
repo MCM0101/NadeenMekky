@@ -239,6 +239,42 @@
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         }
         
+        /* Glass Text Effect - Applied to letters themselves */
+        .glass-text {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.9) 0%,
+                rgba(255, 255, 255, 0.7) 25%,
+                rgba(255, 255, 255, 0.5) 50%,
+                rgba(255, 255, 255, 0.7) 75%,
+                rgba(255, 255, 255, 0.9) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 
+                0 0 10px rgba(255, 255, 255, 0.5),
+                0 0 20px rgba(255, 255, 255, 0.3),
+                0 0 30px rgba(255, 255, 255, 0.2);
+            position: relative;
+            animation: glass-text-shine 4s ease-in-out infinite;
+        }
+        
+        @keyframes glass-text-shine {
+            0%, 100% {
+                background-position: 0% 50%;
+                text-shadow: 
+                    0 0 10px rgba(255, 255, 255, 0.5),
+                    0 0 20px rgba(255, 255, 255, 0.3),
+                    0 0 30px rgba(255, 255, 255, 0.2);
+            }
+            50% {
+                background-position: 100% 50%;
+                text-shadow: 
+                    0 0 15px rgba(255, 255, 255, 0.7),
+                    0 0 25px rgba(255, 255, 255, 0.5),
+                    0 0 35px rgba(255, 255, 255, 0.3);
+            }
+        }
+        
     </style>
 </head>
 <body class="antialiased">
@@ -273,8 +309,8 @@
         <!-- Hero Section -->
         <section class="min-h-screen flex flex-col justify-center items-center py-20 text-center px-4">
             <div class="max-w-5xl">
-                <h1 class="text-5xl sm:text-7xl md:text-8xl font-medium tracking-tight text-gray-900 leading-tight mb-8 animate-fade-in-up">
-                    <span class="glass-header"><span class="glitter-text-slow">I design</span> digital experiences.</span>
+                <h1 class="text-5xl sm:text-7xl md:text-8xl font-medium tracking-tight leading-tight mb-8 animate-fade-in-up glass-text">
+                    <span class="glitter-text-slow">I design</span> digital experiences.
                 </h1>
                 <p class="text-xl md:text-2xl text-gray-500 font-normal max-w-2xl mx-auto mb-16 animate-fade-in-up delay-200">
                     Hi, I'm Nadeen Mekky. A Graphic and Product Designer passionate about crafting delightful experiences that feel effortless, yet <span class="glitter-text">magical</span>.
