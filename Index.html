@@ -234,6 +234,17 @@
             }
         }
         
+        /* Glass Morphism Header */
+        .glass-morphism-header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+        
         /* Glass-like Header Effect */
         .glass-header {
             background: linear-gradient(135deg, 
@@ -328,7 +339,7 @@
 <body class="antialiased">
 
     <!-- Header & Navigation -->
-    <header class="fixed top-0 left-0 right-0 z-10 bg-white bg-opacity-90 backdrop-blur-sm transition-all duration-300 header-animate">
+    <header class="fixed top-0 left-0 right-0 z-10 glass-morphism-header transition-all duration-300 header-animate">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="text-xl font-medium tracking-tight text-[#D0949D]">
                 <a href="#" class="no-underline">Nadeen Mekky</a>
