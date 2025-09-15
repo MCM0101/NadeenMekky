@@ -76,6 +76,65 @@
             }
         }
         
+        /* Glitter Effect */
+        .glitter-text {
+            background: linear-gradient(45deg, #D0949D, #FFD700, #FF69B4, #D0949D, #FFD700);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glitter 3s ease-in-out infinite;
+            position: relative;
+        }
+        
+        @keyframes glitter {
+            0%, 100% {
+                background-position: 0% 50%;
+                text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+            }
+            25% {
+                background-position: 100% 50%;
+                text-shadow: 0 0 15px rgba(255, 105, 180, 0.6);
+            }
+            50% {
+                background-position: 200% 50%;
+                text-shadow: 0 0 20px rgba(208, 148, 157, 0.7);
+            }
+            75% {
+                background-position: 300% 50%;
+                text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+            }
+        }
+        
+        .glitter-text::before {
+            content: '✨';
+            position: absolute;
+            top: -10px;
+            left: -5px;
+            font-size: 0.8em;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+        
+        .glitter-text::after {
+            content: '✨';
+            position: absolute;
+            bottom: -10px;
+            right: -5px;
+            font-size: 0.6em;
+            animation: sparkle 2s ease-in-out infinite 1s;
+        }
+        
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0.5) rotate(0deg);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1) rotate(180deg);
+            }
+        }
+        
     </style>
 </head>
 <body class="antialiased">
@@ -114,7 +173,7 @@
                     <span class="text-[#D0949D] glow-text">I design</span> digital experiences.
                 </h1>
                 <p class="text-xl md:text-2xl text-gray-500 font-normal max-w-2xl mx-auto mb-16 animate-fade-in-up delay-200">
-                    Hi, I'm Nadeen Mekky. A Graphic and Product Designer passionate about crafting delightful experiences that feel effortless, yet magical.
+                    Hi, I'm Nadeen Mekky. A Graphic and Product Designer passionate about crafting delightful experiences that feel effortless, yet <span class="glitter-text">magical</span>.
                 </p>
                 <a href="#work" class="inline-block bg-[#D0949D] text-white font-medium py-3 px-8 rounded-full hover:bg-[#B57C85] transition-colors duration-300 text-lg no-underline animate-fade-in-up delay-400">
                     See My Work
